@@ -1,4 +1,4 @@
-# 🌷 Dhara Prajapati — My Portfolio
+# 🌷 Dhara Prajapati:- My Portfolio
 
 A little corner of the internet where I share what I’m learning, building, and dreaming up.
 
@@ -11,7 +11,7 @@ I’m Dhara Prajapati, a second-year BTech IT student at JG University. I enjoy 
 
 ## 🎓 Education
 
-- BTech in Information Technology — JG University
+- BTech in Information Technology - JG University
 - Diploma in Information Technology — **8.9 CGPA**
 
 ## 🧁 My Projects
