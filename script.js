@@ -94,11 +94,12 @@ if (!reduceMotion) {
 }
 
 
-// Validate the contact form and animate its confirmation message.
+// Send the contact form using Formspree.
 const contactForm = document.querySelector('#contact-form');
 const formMessage = document.querySelector('#form-message');
+const formEndpoint = 'https://formspree.io/f/xbgogqrk';
 
-contactForm.addEventListener('submit', (event) => {
+contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   if (!contactForm.checkValidity()) {
@@ -108,23 +109,31 @@ contactForm.addEventListener('submit', (event) => {
     return;
   }
 
-  formMessage.textContent =
-    'Thanks for your note! This demo form is ready to connect to a service.';
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  formMessage.textContent = 'Sending your message...';
 
-  if (!reduceMotion) {
-    formMessage.animate(
-      [
-        { opacity: 0, transform: 'translateY(8px)' },
-        { opacity: 1, transform: 'translateY(0)' }
-      ],
-      {
-        duration: 450,
-        easing: 'ease-out'
+  try {
+    const response = await fetch(formEndpoint, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: {
+        Accept: 'application/json'
       }
-    );
-  }
+    });
 
-  contactForm.reset();
+    if (!response.ok) {
+      throw new Error('The form service could not accept the message.');
+    }
+
+    formMessage.textContent = 'Thank you! Your message has been sent.';
+    contactForm.reset();
+  } catch (error) {
+    formMessage.textContent =
+      'Sorry, your message could not be sent. Please try again.';
+  } finally {
+    submitButton.disabled = false;
+  }
 });
 
 
