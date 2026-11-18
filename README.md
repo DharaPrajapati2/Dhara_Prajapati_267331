@@ -4,6 +4,8 @@ A little corner of the internet where I share what I’m learning, building, and
 
 ## 🌐 Live Website
 https://dharaprajapati2.github.io/Dhara_Prajapati_267331/
+<img width="768" height="398" alt="Screenshot 2026-11-11 174048" src="https://github.com/user-attachments/assets/a3ce8343-ea9f-418b-9d8e-afaf50af9bab" />
+
 
 ## 💌 About Me
 
